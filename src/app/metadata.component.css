@@ -1,0 +1,52 @@
+.hideCell{
+    display: none;
+}
+body{
+    background-color: #fff;
+}
+table{
+    text-align: center;
+    margin-top: 10px;
+}
+
+thead th{
+    border-bottom: 1px solid #000;
+    padding: 0 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+th i{
+    color: #999;
+    padding: 0 5px;
+
+}
+th i:hover{
+    color:darkblue;
+    cursor: pointer;
+}
+tr{
+    border-bottom: 1px solid #000;
+ 
+}
+td{
+    height: 50px;
+    line-height: 30px;
+    padding: 0 5px;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    border-color: hsla(0,0%,88%,.6);
+}
+td button{
+    padding:0 5px;
+}
+
+input,button{
+    display: inline-block;
+}
+
+ul.pagination{
+    margin:20px 150px;
+}
+.form-control{
+    width: auto;
+}

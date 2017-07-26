@@ -1,0 +1,105 @@
+
+
+<h5><button type="button" class="btn btn-primary"(click)="goBack();$event.stopPropagation()" >返回</button>视图控制模块</h5>
+
+<div class="viewControl">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <button id="submit" type="submit"  class="btn btn-primary">提交</button>
+    <!--<label><span>UDID</span><input type="checkbox" name="viewbaseUdid" ngModel #viewbaseUdid="ngModel" [checked]="selectedStatus[0].viewbaseUdid"></label>
+    <label><span>广场名称</span><input type="checkbox" name="viewbaseMapName" ngModel #viewbaseMapName="ngModel" [checked]="selectedStatus[0].viewbaseMapName"></label>
+    <label><span>广场ID</span><input type="checkbox" name="viewbasePartnerUdid" ngModel #viewbasePartnerUdid="ngModel" [checked]="selectedStatus[0].viewbasePartnerUdid"></label>
+    <label><span>城市</span><input type="checkbox" name="viewbaseCity" ngModel #viewbaseCity="ngModel" [checked]="selectedStatus[0].viewbaseCity"></label>
+    <label><span>区域</span><input type="checkbox" name="viewbaseDistrict" ngModel #viewbaseDistrict="ngModel" [checked]="selectedStatus[0].viewbaseDistrict"></label>
+    <label><span>地址</span><input type="checkbox" name="viewbaseAddress" ngModel #viewbaseAddress="ngModel" [checked]="selectedStatus[0].viewbaseAddress"></label>
+    <label><span>制图面积</span><input type="checkbox" name="viewbaseMapArea" ngModel #viewbaseMapArea="ngModel" [checked]="selectedStatus[0].viewbaseMapArea"></label>
+
+    <label><span>Pr.NO</span><input type="checkbox" name="viewprojectPrNo" ngModel #viewprojectPrNo="ngModel" [checked]="selectedStatus[0].viewprojectPrNo"></label>
+    <label><span>建筑面积</span><input type="checkbox" name="viewprojectBuildArea" ngModel #viewprojectBuildArea="ngModel" [checked]="selectedStatus[0].viewprojectBuildArea"></label>
+    <label><span>广场性质</span><input type="checkbox" name="viewprojectNature" ngModel #viewprojectNature="ngModel" [checked]="selectedStatus[0].viewprojectNature"></label>
+    <label><span>是否提供勘场报告</span><input type="checkbox" name="viewprojectReport" ngModel #viewprojectReport="ngModel" [checked]="selectedStatus[0].viewprojectReport"></label>
+    <label><span>联系人</span><input type="checkbox" name="viewprojectLinkmanName" ngModel #viewprojectLinkmanName="ngModel" [checked]="selectedStatus[0].viewprojectLinkmanName"></label>
+    <label><span>联系电话</span><input type="checkbox" name="viewprojectLinkmanPhone" ngModel #viewprojectLinkmanPhone="ngModel" [checked]="selectedStatus[0].viewprojectLinkmanPhone"></label>
+    <label><span>负责人</span><input type="checkbox" name="viewprojectManagerName" ngModel #viewprojectManagerName="ngModel" [checked]="selectedStatus[0].viewprojectManagerName"></label>
+
+    <label><span>更新次数</span><input type="checkbox" name="viewproductUpdateFrequency" ngModel #viewproductUpdateFrequency="ngModel"  [checked]="selectedStatus[0].viewproductUpdateFrequency"></label>
+    <label><span>申请时间</span><input type="checkbox" name="viewproductStartDate" ngModel #viewproductStartDate="ngModel"  [checked]="selectedStatus[0].viewproductStartDate"></label>
+    <label><span>预计上线时间</span><input type="checkbox" name="viewproductDeadline" ngModel #viewproductDeadline="ngModel"  [checked]="selectedStatus[0].viewproductDeadline"></label>
+    <label><span>暂停状态</span><input type="checkbox" name="viewproductSuspendStatus" ngModel #viewproductSuspendStatus="ngModel"  [checked]="selectedStatus[0].viewproductSuspendStatus"></label>
+    <label><span>暂停原因</span><input type="checkbox" name="viewproductSuspendReason" ngModel #viewproductSuspendReason="ngModel"  [checked]="selectedStatus[0].viewproductSuspendReason"></label>
+    <label><span>地图是否上传</span><input type="checkbox" name="viewproductImportMap" ngModel #viewproductImportMap="ngModel"  [checked]="selectedStatus[0].viewproductImportMap"></label>
+    <label><span>数据上传时间</span><input type="checkbox" name="viewproductCommitDate" ngModel #viewproductCommitDate="ngModel"  [checked]="selectedStatus[0].viewproductCommitDate"></label>
+    <label><span>BP后台验证结果</span><input type="checkbox" name="viewproductBpVerify" ngModel #viewproductBpVerify="ngModel"  [checked]="selectedStatus[0].viewproductBpVerify"></label>
+    <label><span>配准提交日</span><input type="checkbox" name="viewproductRegisterCommitDate" ngModel #viewproductRegisterCommitDate="ngModel"  [checked]="selectedStatus[0].viewproductRegisterCommitDate"></label>
+    <label><span>初版数据状态</span><input type="checkbox" name="viewproductInnerStatus" ngModel #viewproductInnerStatus="ngModel"  [checked]="selectedStatus[0].viewproductInnerStatus"></label>
+    <label><span>内业制作人</span><input type="checkbox" name="viewproductInnerProducer" ngModel #viewproductInnerProducer="ngModel"  [checked]="selectedStatus[0].viewproductInnerProducer"></label>
+    <label><span>初版完成时间</span><input type="checkbox" name="viewproductInnerCommitDate" ngModel #viewproductInnerCommitDate="ngModel"  [checked]="selectedStatus[0].viewproductInnerCommitDate"></label>
+    <label><span>初版用时</span><input type="checkbox" name="viewproductInnerForecastDay" ngModel #viewproductInnerForecastDay="ngModel"  [checked]="selectedStatus[0].viewproductInnerForecastDay"></label>
+    <label><span>外业核对状态</span><input type="checkbox" name="viewproductOuterStatus" ngModel #viewproductOuterStatus="ngModel"  [checked]="selectedStatus[0].viewproductOuterStatus"></label>
+    <label><span>核实员</span><input type="checkbox" name="viewproductOuterProducer" ngModel #viewproductOuterProducer="ngModel"  [checked]="selectedStatus[0].viewproductOuterProducer"></label>
+    <label><span>外业核实时间</span><input type="checkbox" name="viewproductOuterCommitDate" ngModel #viewproductOuterCommitDate="ngModel"  [checked]="selectedStatus[0].viewproductOuterCommitDate"></label>
+    <label><span>核对用时</span><input type="checkbox" name="viewproductOuterForecastDay" ngModel #viewproductOuterForecastDay="ngModel"  [checked]="selectedStatus[0].viewproductOuterForecastDay"></label>
+    <label><span>完善人员</span><input type="checkbox" name="viewproductCompleteStaff" ngModel #viewproductCompleteStaff="ngModel"  [checked]="selectedStatus[0].viewproductCompleteStaff"></label>
+    <label><span>最终预交日</span><input type="checkbox" name="viewproductDeadlineDate" ngModel #viewproductDeadlineDate="ngModel"  [checked]="selectedStatus[0].viewproductDeadlineDate"></label>
+    <label><span>完善预估用时</span><input type="checkbox" name="viewproductCompleteForecastDay" ngModel #viewproductCompleteForecastDay="ngModel"  [checked]="selectedStatus[0].viewproductCompleteForecastDay"></label>
+    <label><span>制作状态</span><input type="checkbox" name="viewproductStatus" ngModel #viewproductStatus="ngModel"  [checked]="selectedStatus[0].viewproductStatus"></label>
+
+    <label><span>制图金额</span><input type="checkbox" name="viewpayMap" ngModel #viewpayMap="ngModel"  [checked]="selectedStatus[0].viewpayMap"></label>
+    <label><span>初款日期</span><input type="checkbox" name="viewpayFirstDate" ngModel #viewpayFirstDate="ngModel"  [checked]="selectedStatus[0].viewpayFirstDate"></label>
+    <label><span>初款金额</span><input type="checkbox" name="viewpayFirstSum" ngModel #viewpayFirstSum="ngModel"  [checked]="selectedStatus[0].viewpayFirstSum"></label>
+    <label><span>终验金额</span><input type="checkbox" name="viewpayFinalSum" ngModel #viewpayFinalSum="ngModel"  [checked]="selectedStatus[0].viewpayFinalSum"></label>
+    <label><span>付款批次</span><input type="checkbox" name="viewpayBatch" ngModel #viewpayBatch="ngModel"  [checked]="selectedStatus[0].viewpayBatch"></label>
+    <label><span>终验付款日期</span><input type="checkbox" name="viewpayDate" ngModel #viewpayDate="ngModel"  [checked]="selectedStatus[0].viewpayDate"></label>
+    <label><span>是否开具发票</span><input type="checkbox" name="viewpayInvoice" ngModel #viewpayInvoice="ngModel"  [checked]="selectedStatus[0].viewpayInvoice"></label>
+    <label><span>备注</span><input type="checkbox" name="viewpayRemarks" ngModel #viewpayRemarks="ngModel"  [checked]="selectedStatus[0].viewpayRemarks"></label>-->
+
+      
+    <label><span>UDID</span><input type="checkbox" name="viewbaseUdid" ngModel #viewbaseUdid="ngModel"></label>
+    <label><span>广场名称</span><input type="checkbox" name="viewbaseMapName" ngModel #viewbaseMapName="ngModel"></label>
+    <label><span>广场ID</span><input type="checkbox" name="viewbasePartnerUdid" ngModel #viewbasePartnerUdid="ngModel"></label>
+    <label><span>城市</span><input type="checkbox" name="viewbaseCity" ngModel #viewbaseCity="ngModel"></label>
+    <label><span>区域</span><input type="checkbox" name="viewbaseDistrict" ngModel #viewbaseDistrict="ngModel" ></label>
+    <label><span>地址</span><input type="checkbox" name="viewbaseAddress" ngModel #viewbaseAddress="ngModel" ></label>
+    <label><span>制图面积</span><input type="checkbox" name="viewbaseMapArea" ngModel #viewbaseMapArea="ngModel" ></label>
+
+    <label><span>Pr.NO</span><input type="checkbox" name="viewprojectPrNo" ngModel #viewprojectPrNo="ngModel" ></label>
+    <label><span>建筑面积</span><input type="checkbox" name="viewprojectBuildArea" ngModel #viewprojectBuildArea="ngModel"></label>
+    <label><span>广场性质</span><input type="checkbox" name="viewprojectNature" ngModel #viewprojectNature="ngModel" ></label>
+    <label><span>是否提供勘场报告</span><input type="checkbox" name="viewprojectReport" ngModel #viewprojectReport="ngModel"></label>
+    <label><span>联系人</span><input type="checkbox" name="viewprojectLinkmanName" ngModel #viewprojectLinkmanName="ngModel"></label>
+    <label><span>联系电话</span><input type="checkbox" name="viewprojectLinkmanPhone" ngModel #viewprojectLinkmanPhone="ngModel"></label>
+    <label><span>负责人</span><input type="checkbox" name="viewprojectManagerName" ngModel #viewprojectManagerName="ngModel"></label>
+
+    <label><span>更新次数</span><input type="checkbox" name="viewproductUpdateFrequency" ngModel #viewproductUpdateFrequency="ngModel"  ></label>
+    <label><span>申请时间</span><input type="checkbox" name="viewproductStartDate" ngModel #viewproductStartDate="ngModel"  ></label>
+    <label><span>预计上线时间</span><input type="checkbox" name="viewproductDeadline" ngModel #viewproductDeadline="ngModel" ></label>
+    <label><span>暂停状态</span><input type="checkbox" name="viewproductSuspendStatus" ngModel #viewproductSuspendStatus="ngModel"></label>
+    <label><span>暂停原因</span><input type="checkbox" name="viewproductSuspendReason" ngModel #viewproductSuspendReason="ngModel" ></label>
+    <label><span>地图是否上传</span><input type="checkbox" name="viewproductImportMap" ngModel #viewproductImportMap="ngModel"  ></label>
+    <label><span>数据上传时间</span><input type="checkbox" name="viewproductCommitDate" ngModel #viewproductCommitDate="ngModel" ></label>
+    <label><span>BP后台验证结果</span><input type="checkbox" name="viewproductBpVerify" ngModel #viewproductBpVerify="ngModel" ></label>
+    <label><span>配准提交日</span><input type="checkbox" name="viewproductRegisterCommitDate" ngModel #viewproductRegisterCommitDate="ngModel"></label>
+    <label><span>初版数据状态</span><input type="checkbox" name="viewproductInnerStatus" ngModel #viewproductInnerStatus="ngModel"></label>
+    <label><span>内业制作人</span><input type="checkbox" name="viewproductInnerProducer" ngModel #viewproductInnerProducer="ngModel" ></label>
+    <label><span>初版完成时间</span><input type="checkbox" name="viewproductInnerCommitDate" ngModel #viewproductInnerCommitDate="ngModel" ></label>
+    <label><span>初版用时</span><input type="checkbox" name="viewproductInnerForecastDay" ngModel #viewproductInnerForecastDay="ngModel" ></label>
+    <label><span>外业核对状态</span><input type="checkbox" name="viewproductOuterStatus" ngModel #viewproductOuterStatus="ngModel" ></label>
+    <label><span>核实员</span><input type="checkbox" name="viewproductOuterProducer" ngModel #viewproductOuterProducer="ngModel" ></label>
+    <label><span>外业核实时间</span><input type="checkbox" name="viewproductOuterCommitDate" ngModel #viewproductOuterCommitDate="ngModel"></label>
+    <label><span>核对用时</span><input type="checkbox" name="viewproductOuterForecastDay" ngModel #viewproductOuterForecastDay="ngModel" ></label>
+    <label><span>完善人员</span><input type="checkbox" name="viewproductCompleteStaff" ngModel #viewproductCompleteStaff="ngModel" ></label>
+    <label><span>最终预交日</span><input type="checkbox" name="viewproductDeadlineDate" ngModel #viewproductDeadlineDate="ngModel"></label>
+    <label><span>完善预估用时</span><input type="checkbox" name="viewproductCompleteForecastDay" ngModel #viewproductCompleteForecastDay="ngModel" ></label>
+    <label><span>制作状态</span><input type="checkbox" name="viewproductStatus" ngModel #viewproductStatus="ngModel"></label>
+
+    <label><span>制图金额</span><input type="checkbox" name="viewpayMap" ngModel #viewpayMap="ngModel" ></label>
+    <label><span>初款日期</span><input type="checkbox" name="viewpayFirstDate" ngModel #viewpayFirstDate="ngModel" ></label>
+    <label><span>初款金额</span><input type="checkbox" name="viewpayFirstSum" ngModel #viewpayFirstSum="ngModel" ></label>
+    <label><span>终验金额</span><input type="checkbox" name="viewpayFinalSum" ngModel #viewpayFinalSum="ngModel" ></label>
+    <label><span>付款批次</span><input type="checkbox" name="viewpayBatch" ngModel #viewpayBatch="ngModel" ></label>
+    <label><span>终验付款日期</span><input type="checkbox" name="viewpayDate" ngModel #viewpayDate="ngModel" ></label>
+    <label><span>是否开具发票</span><input type="checkbox" name="viewpayInvoice" ngModel #viewpayInvoice="ngModel"></label>
+    <label><span>备注</span><input type="checkbox" name="viewpayRemarks" ngModel #viewpayRemarks="ngModel"></label>
+    <div>{{f.value | json}}</div>
+    
+  </form>
+</div>

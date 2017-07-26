@@ -1,0 +1,51 @@
+<a routerLink="/detailInfo/page/1" type="button" class="btn btn-primary" routerLinkActive="active">goBack</a>
+
+<h5>{{oneTips | json}}</h5>
+
+<h5>单条数据信息</h5>
+
+<div>
+    <p><span>id</span>{{oneTips.id}}</p>
+    <p><span>projectId</span>{{oneTips.projectId}}</p>
+    <p><span>updateTime</span>{{oneTips.updateTime}}</p>
+    <p><span>UDID</span>{{oneTips.mapBaseVo.baseUdid}}</p>
+    <p><span>广场名称</span>{{oneTips.mapBaseVo.baseMapName}}</p>
+    <p><span>广场ID</span>{{oneTips.mapBaseVo.basePartnerUdid}}</p>
+    <p><span>城市</span>{{oneTips.mapBaseVo.baseCity}}</p>
+    <p><span>地区</span>{{oneTips.mapBaseVo.baseDistrict}}</p>
+    <p><span>地址</span>{{oneTips.mapBaseVo.baseAddress}}</p>
+    <p><span>制图面积</span>{{oneTips.mapBaseVo.baseMapArea}}</p>
+
+    <p><span>负责人</span>{{oneTips.mapProjectVo.projectManagerName}}</p>
+    <p><span>PrNO</span>{{oneTips.mapProjectVo.projectPrNo}}</p>
+    <p><span>建筑面积</span>{{oneTips.mapProjectVo.projectBuildArea}}</p>
+    <p><span>广场性质</span>{{oneTips.mapProjectVo.projectNature}}</p>
+    <p><span>勘察报告</span>{{oneTips.mapProjectVo.projectReport==1?"有":"无"}}</p>
+    <p><span>联系人</span>{{oneTips.mapProjectVo.projectLinkmanName}}</p>
+    <p><span>联系电话</span>{{oneTips.mapProjectVo.projectLinkmanPhone}}</p>
+
+
+    <p><span>更新次数</span>{{oneTips.mapProductVo.productUpdateFrequency}}</p>
+    <p><span>申请时间</span>{{oneTips.mapProductVo.productStartDate}}</p>
+    <p><span>暂停状态</span>{{oneTips.mapProductVo.productSuspendStatus==0?"未暂停":"暂停"}}</p>
+    <p><span>暂停原因</span>{{oneTips.mapProductVo.productSuspendReason}}</p>
+    <p><span>地图数据上传</span>{{oneTips.mapProductVo.productImportMap==0?"未上传":"上传"}}</p>
+    <p><span>BP后台验证</span>{{oneTips.mapProductVo.productBpVerify==0?"未验证":"已验证"}}</p>
+    <p><span>最终预交日</span>{{oneTips.mapProductVo.productDeadline}}</p>
+    <p><span>制作状态</span>{{oneTips.mapProductVo.productStatus}}</p>
+    <p><span>初版用时</span>{{oneTips.mapProductVo.productInnerForecaseDay}}</p>
+    <p><span>内业制作人</span>{{oneTips.mapProductVo.productInnerProducer}}</p>
+    <p><span>内业状态</span>{{oneTips.mapProductVo.productInnerStatus}}</p>
+    <p><span>外业用时</span>{{oneTips.mapProductVo.productOuterForcastDay}}</p>
+    <p><span>核实员</span>{{oneTips.mapProductVo.prodcutOuterProducer}}</p>
+    <p><span>外业核对状态</span>{{oneTips.mapProductVo.producerOuterStatus}}</p>
+    <p><span>完善预估用时</span>{{oneTips.mapProductVo.productCompleteForecastDay}}</p>
+    <p><span>完善人员</span>{{oneTips.mapProductVo.productCompleteStaff}}</p>
+    <p><span>制图金额</span>{{oneTips.mapPayVo.payMap}}</p>
+    <p><span>初款金额</span>{{oneTips.mapPayVo.payFirstSum}}</p>
+    <p><span>终验金额</span>{{oneTips.mapPayVo.payFinalSum}}</p>
+    <p><span>付款批次</span>{{oneTips.mapPayVo.payBatch}}</p>
+    <p><span>是否开具发票</span>{{oneTips.mapPayVo.payInvoice==0?"否":"是"}}</p>
+    <p><span>备注</span>{{oneTips.mapPayVo.payRemarks}}</p>
+   
+</div>

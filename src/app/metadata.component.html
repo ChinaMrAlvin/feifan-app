@@ -1,0 +1,118 @@
+
+
+ <input class="form-control col-sm-4" type="text" placeholder="UDID/广场名称/ID" [(ngModel)]="searchText" (keyup)="searchChanged($event)" (change)="searchChanged($event)" id="searchText" name="searchText">
+ <button class="btn btn-default" type="button" (click)="searchChanged($event)"><i class="fa fa-search">搜索</i></button>
+ <br>
+  <pagination [totalItems]="totalItems" [maxSize]="maxSize" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" firstText="{{'firstPage'}}"
+             lastText="{{'lastPage'}}" previousText="{{'previousPage'}}" nextText="{{'nextPage'}}" [boundaryLinks]="true" [rotate]="false" 
+             (pageChanged)="pageChanged($event)" class="pagination-sm"></pagination>
+<table cellspacing=0 [@fadeIn]>
+  <thead (click)="delegateSort($event)">
+    <th>操作</th>
+    <!--map-->
+    <th [ngClass]="{'baseUdid':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbaseUdid==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false"></i> <i class="fa fa-long-arrow-down" aria-hidden="false"></i>UDID</th>
+    <th [ngClass]="{'baseMapName':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbaseMapName==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>广场名称</th>
+    <th [ngClass]="{'basePartnerUdid':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbasePartnerUdid==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>广场id</th>
+    <th [ngClass]="{'baseCity':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbaseCity==0:false}" ><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>城市</th>
+    <th [ngClass]="{'baseDistrict':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbaseDistrict==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>地区</th>
+    <th [ngClass]="{'baseAddress':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbaseAddress==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>地址</th>
+    <th [ngClass]="{'baseMapArea':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewbaseMapArea==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>制图面积</th>
+    <!--project-->
+    <th [ngClass]="{'projectBuildArea':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectBuildArea==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>建筑面积（万平米）</th>
+    <th [ngClass]="{'projectLinkmanName':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectLinkmanName==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>联系人</th>
+    <th [ngClass]="{'projectLinkmanPhone':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectLinkmanPhone==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>联系人电话</th>
+    <th [ngClass]="{'projectManagerName':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectManagerName==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>负责人</th>
+    <th [ngClass]="{'projectNature':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectNature==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>广场性质</th>
+    <th [ngClass]="{'projectPrNo':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectPrNo==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>Pr.NO</th>
+    <th [ngClass]="{'projectReport':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewprojectReport==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>是否提供勘场报告</th>
+    <!--make-->
+    <th [ngClass]="{'productUpdateFrequency':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductUpdateFrequency==0:false}" ><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>更新次数</th>
+    <th [ngClass]="{'productStartDate':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductStartDate==0:false}" ><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>申请时间</th>
+    <th [ngClass]="{'productDeadline':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductDeadline==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>预计上线时间</th>
+    <th [ngClass]="{'productSuspendStatus':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductSuspendStatus==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>暂停状态</th>
+    <th [ngClass]="{'productSuspendReason':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductSuspendReason==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>暂停原因</th>
+    <th [ngClass]="{'productImportMap':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductImportMap==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>地图数据是否上传</th>
+    <th [ngClass]="{'productCommitDate':true,'hideCell':USERVIEW[0]?USERVIEW[0].viewproductCommitDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>数据上传时间</th>
+    <th [ngClass]="{'productBpVerify':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductBpVerify==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>BP后台验证结果</th>
+    <th [ngClass]="{'productRegisterCommitDate':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductRegisterCommitDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>配准图提交日</th>
+    <th [ngClass]="{'productInnerStatus':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductInnerStatus==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>初版数据</th>
+    <th [ngClass]="{'productInnerProducer':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductInnerProducer==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>内业制作人</th>
+    <th [ngClass]="{'productInnerCommitDate':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductInnerCommitDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>初版完成时间</th>
+    <th [ngClass]="{'productInnerForecastDay':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductInnerForecastDay==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>初版用时</th>
+    <th [ngClass]="{'productOuterStatus':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductOuterStatus==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>外业核对状态</th>
+    <th [ngClass]="{'productOuterProducer':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductOuterProducer==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>核实员</th>
+    <th [ngClass]="{'productOuterCommitDate':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductOuterCommitDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>外业核实时间</th>
+    <th [ngClass]="{'productOuterForecastDay':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductOuterForecastDay==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>核对用时</th>
+    <th [ngClass]="{'productCompleteStaff':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductCompleteStaff==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>完善人员</th>
+    <th [ngClass]="{'productDeadlineDate':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductDeadlineDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>最终预交日</th>
+    <th [ngClass]="{'productCompleteForecastDay':true,'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductCompleteForecastDay==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>完善预估用时</th>
+    <th [ngClass]="{'productStatus':true,'hideCell':USERVIEW[ 0] ? USERVIEW[0].viewproductStatus==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>制作状态</th>
+    <!--pay-->
+    <th [ngClass]="{'payBatch':true,'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewpayBatch==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>付款批次</th>
+    <th [ngClass]="{'payDate':true,'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewpayDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>终验付款日期</th>
+    <th [ngClass]="{'payFinalSum':true,'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewpayFinalSum==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>终验金额</th>
+    <th [ngClass]="{'payFirstDate':true,'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewpayFirstDate==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>初款日期</th>
+    <th [ngClass]="{'payFirstSum':true,'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewpayFirstSum==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>初款金额</th>
+    <th [ngClass]="{'payInvoice':true,'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewpayInvoice==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>是否开具发票</th>
+    <th [ngClass]="{'payMap':true,'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewpayMap==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>制图金额</th>
+    <th [ngClass]="{'payRemarks':true,'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewpayRemarks==0:false}"><i class="fa fa-long-arrow-up" aria-hidden="false" ></i> <i class="fa fa-long-arrow-down" aria-hidden="false"  ></i>备注</th>
+
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of allDatas">
+      <td><button class="btnEdit" (click)="getEditRole(data.id)">编辑</button><button class="btnObserve" (click)="lookOneTips(data.id)">查看</button></td>
+      <td [ngClass]="{'baseUdid':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewbaseUdid==0:false}" >{{data.mapBaseVo.baseUdid}}</td>
+      <td [ngClass]="{'baseMapName':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewbaseMapName==0:false}" >{{data.mapBaseVo.baseMapName}}</td>
+      <td [ngClass]="{'basePartnerUdid':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewbasePartnerUdid==0:false}" >{{data.mapBaseVo.basePartnerUdid}}</td>
+      <td [ngClass]="{'baseCity':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewbaseCity==0:false}" >{{data.mapBaseVo.baseCity}}</td>
+      <td [ngClass]="{'baseDistrict':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewbaseDistrict==0:false}" >{{data.mapBaseVo.baseDistrict}}</td>
+      <td [ngClass]="{'baseAddress':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewbaseAddress==0:false}" >{{data.mapBaseVo.baseAddress}}</td>
+      <td [ngClass]="{'baseMapArea':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewbaseMapArea==0:false}" >{{data.mapBaseVo.baseMapArea}}</td>
+      <td [ngClass]="{'projectBuildArea':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewprojectBuildArea==0:false}" >{{data.mapProjectVo.projectBuildArea}}</td>
+      <td [ngClass]="{'projectLinkmanName':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewprojectLinkmanName==0:false}" >{{data.mapProjectVo.projectLinkmanName}}</td>
+      <td [ngClass]="{'projectLinkmanPhone':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewprojectLinkmanPhone==0:false}" >{{data.mapProjectVo.projectLinkmanPhone}}</td>
+      <td [ngClass]="{'projectManagerName':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewprojectManagerName==0:false}" >{{data.mapProjectVo.projectManagerName}}</td>
+      <td [ngClass]="{'projectNature':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewprojectNature==0:false}" >{{data.mapProjectVo.projectNature}}</td>
+      <td [ngClass]="{'projectPrNo':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewprojectPrNo==0:false}" >{{data.mapProjectVo.projectPrNo}}</td>
+      <td [ngClass]="{'projectReport':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewprojectReport==0:false}" >{{data.mapProjectVo.projectReport}}</td>
+      <td [ngClass]="{'productUpdateFrequency':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductUpdateFrequency==0:false}" >{{data.mapProductVo.productUpdateFrequency}}</td>
+      <td [ngClass]="{'productStartDate':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductStartDate==0:false}" >{{data.mapProductVo.productStartDate}}</td>
+      <td [ngClass]="{'productDeadline':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewproductDeadline==0:false}" >{{data.mapProductVo.productDeadline}}</td>
+      <td [ngClass]="{'productSuspendStatus':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductSuspendStatus==0:false}" >{{data.mapProductVo.productSuspendStatus}}</td>
+      <td [ngClass]="{'productSuspendReason':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductSuspendReason==0:false}" >{{data.mapProductVo.productSuspendReason}}</td>
+      <td [ngClass]="{'productImportMap':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductImportMap==0:false}" >{{data.mapProductVo.productImportMap}}</td>
+      <td [ngClass]="{'productCommitDate':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductCommitDate==0:false}" >{{data.mapProductVo.productCommitDate}}</td>
+      <td [ngClass]="{'productBpVerify':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductBpVerify==0:false}" >{{data.mapProductVo.productBpVerify}}</td>
+      <td [ngClass]="{'productRegisterCommitDate':true , 'hideCell':USERVIEW[0] ? USERVIEW[0].viewproductRegisterCommitDate==0:false}" >{{data.mapProductVo.productRegisterCommitDate}}</td>
+      <td [ngClass]="{'productInnerStatus':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewproductInnerStatus==0:false}" >{{data.mapProductVo.productInnerStatus}}</td>
+      <td [ngClass]="{'productInnerProducer':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductInnerProducer==0:false}" >{{data.mapProductVo.productInnerProducer}}</td>
+      <td [ngClass]="{'productInnerCommitDate':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewproductInnerCommitDate==0:false}" >{{data.mapProductVo.productInnerCommitDate}}</td>
+      <td [ngClass]="{'productInnerForecastDay':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductInnerForecastDay==0:false}" >{{data.mapProductVo.productInnerForecastDay}}</td>
+      <td [ngClass]="{'productOuterStatus':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductOuterStatus==0:false}" >{{data.mapProductVo.productOuterStatus}}</td>
+      <td [ngClass]="{'productOuterProducer':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductOuterProducer==0:false}" >{{data.mapProductVo.productOuterProducer}}</td>
+      <td [ngClass]="{'productOuterCommitDate':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductOuterCommitDate==0:false}" >{{data.mapProductVo.productOuterCommitDate}}</td>
+      <td [ngClass]="{'productOuterForecastDay':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductOuterForecastDay==0:false}" >{{data.mapProductVo.productOuterForecastDay}}</td>
+      <td [ngClass]="{'productCompleteStaff':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewproductCompleteStaff==0:false}" >{{data.mapProductVo.productCompleteStaff}}</td>
+      <td [ngClass]="{'productDeadlineDate':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductDeadlineDate==0:false}" >{{data.mapProductVo.productDeadlineDate}}</td>
+      <td [ngClass]="{'productCompleteForecastDay':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewproductCompleteForecastDay==0:false}" >{{data.mapProductVo.productCompleteForecastDay}}</td>
+      <td [ngClass]="{'productStatus':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewproductStatus==0:false}" >{{data.mapProductVo.productStatus}}</td>
+      <td [ngClass]="{'payBatch':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewpayBatch==0:false}" >{{data.mapPayVo.payBatch}}</td>
+      <td [ngClass]="{'payDate':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[0 ].viewpayDate==0:false}" >{{data.mapPayVo.payDate}}</td>
+      <td [ngClass]="{'payFinalSum':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewpayFinalSum==0:false}" >{{data.mapPayVo.payFinalSum}}</td>
+      <td [ngClass]="{'payFirstDate':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewpayFirstDate==0:false}" >{{data.mapPayVo.payFirstDate}}</td>
+      <td [ngClass]="{'payFirstSum':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[ 0].viewpayFirstSum==0:false}" >{{data.mapPayVo.payFirstSum}}</td>
+      <td [ngClass]="{'payInvoice':true , 'hideCell':USERVIEW[0 ] ? USERVIEW[0 ].viewpayInvoice==0:false}" >{{data.mapPayVo.payInvoice}}</td>
+      <td [ngClass]="{'payMap':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewpayMap==0:false}" >{{data.mapPayVo.payMap}}</td>
+      <td [ngClass]="{'payRemarks':true , 'hideCell':USERVIEW[ 0] ? USERVIEW[ 0].viewpayRemarks==0:false}" >{{data.mapPayVo.payRemarks}}</td>
+
+    </tr>
+     
+  </tbody>
+  <tfoot>
+   
+  </tfoot>
+</table>
+
+
+

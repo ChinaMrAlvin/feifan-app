@@ -1,0 +1,192 @@
+
+<h5>新增一条数据信息</h5>
+<form [formGroup]="addDataForm" (ngSubmit)="onSubmit(addDataForm)"  novalidate >
+   <button type="submit" class="btn btn-primary">提交</button>
+  <!--make-->
+  <div formGroupName="make" class="well well-1g">
+    <div class="form-group">
+      <label class="center-block">Udid:
+            <input class="form-control" formControlName="baseUdid">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">广场名称:
+            <input class="form-control" formControlName="baseMapName">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">广场ID:
+            <input class="form-control" formControlName="basePartnerUdid">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">城市:
+            <input class="form-control" formControlName="baseCity">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">地区:
+            <input class="form-control" formControlName="baseDistrict">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">地址:
+            <input class="form-control" formControlName="baseAddress">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">制图面积:
+            <input class="form-control" formControlName="baseMapArea">
+            </label>
+    </div>
+  </div>
+  <!--project-->
+  <div formGroupName="project" class="well well-1g">
+    <div class="form-group">
+      <label class="center-block">建筑面积:
+            <input class="form-control" formControlName="projectBuildArea">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">联系人:
+            <input class="form-control" formControlName="projectLinkmanName">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">联系人电话:
+            <input class="form-control" formControlName="projectLinkmanPhone">
+            </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">负责人:
+            <input class="form-control" formControlName="projectManagerName">
+            </label>
+    </div>
+    <div class="form-group radio">
+      <h3>广场性质:</h3>
+      <label class="center-block"><input type="radio" formControlName="projectNature" value="外部">外部</label>
+      <label class="center-block"><input type="radio" formControlName="projectNature" value="内部">内部</label>
+    </div>
+    <div class="form-group checkbox">
+      <label class="center-block">Pr.NO:
+      <input type="checkbox" formControlName="projectPrNo">
+     </label>
+
+    </div>
+    <div class="form-group checkbox">
+      <label class="center-block">勘场报告:
+           <input type="checkbox" formControlName="projectReport">
+      </label>
+    </div>
+
+  </div>
+  <!--product-->
+  <div formGroupName="product" class="well well-1g">
+    <div class="form-group">
+      <label class="center-block">更新次数:
+      <input class="form-control" formControlName="productUpdateFrequency">
+    </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">申请时间:
+      <input class="form-control" formControlName="productStartDate">
+    </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">预计上线时间:
+      <input class="form-control" formControlName="productDeadline">
+      </label>
+    </div>
+     <div class="form-group checkbox">
+      <label class="center-block">暂停状态:
+           <input type="checkbox" formControlName="productSuspendStatus">
+      </label>
+    </div>
+      <div class="form-group">
+      <label class="center-block">暂停原因:
+      <input class="form-control" formControlName="productSuspendReason">
+      </label>
+    </div>
+     <div class="form-group checkbox">
+      <label class="center-block">地图是否上传:
+           <input type="checkbox" formControlName="productImportMap">
+      </label>
+    </div>
+    
+      <div class="form-group">
+      <label class="center-block">数据上传时间:
+      <input class="form-control" formControlName="productCommitDate">
+      </label>
+    </div>
+     <div class="form-group checkbox">
+      <label class="center-block">BP后台验证结果:
+           <input type="checkbox" formControlName="productBpVerify">
+      </label>
+    </div>
+     <div class="form-group">
+      <label class="center-block">配准提交日:
+      <input class="form-control" formControlName="productRegisterCommitDate">
+      </label>
+    </div>
+    
+     <div class="form-group">
+      <label class="center-block">初版数据状态:
+          <select  id="" formControlName="productInnerStatus">
+            <option value="未开始">未开始</option>
+            <option value="制作中">制作中</option>
+            <option value="暂停">暂停</option>
+            <option value="已完成">已完成</option>
+          </select>
+      </label>
+    </div>
+    <div class="form-group">
+    <label class="center-block">内业制作人:
+    <input class="form-control" formControlName="productInnerProducer">
+    </label>
+  </div>
+    
+
+  </div>
+  <!--pay-->
+  <div formGroupName="product" class="well well-1g">
+
+  </div>
+
+
+<!--
+  <div class="form-group">
+    <label class="center-block">State:
+      <select class="form-control" formControlName="state">
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Zip Code:
+      <input class="form-control" formControlName="zip">
+    </label>
+  </div>
+  <div class="form-group radio">
+    <h4>Super power:</h4>
+    <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+    <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+    <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+  </div>
+  <div class="checkbox">
+    <label class="center-block">
+      <input type="checkbox" formControlName="sidekick">I have a sidekick.
+    </label>
+  </div>-->
+ 
+</form>
+
+
+<p>Form value: {{ addDataForm.value | json }}</p>
+
+<p>value: {{ addDataForm.get('make.baseUdid').value }}</p>
+
+<p>status: {{ addDataForm.get('make.baseUdid').status }}</p>
+
+<p>pristine: {{ addDataForm.get('make.baseUdid').pristine }}</p>
+
+<p>untouched: {{ addDataForm.get('make.baseUdid').untouched }}</p>

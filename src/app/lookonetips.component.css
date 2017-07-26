@@ -1,0 +1,14 @@
+div{
+
+}
+div p{
+    display: inline-block;
+    width: 40%;
+    border-bottom: 1px solid #999;
+}
+div p span{
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+}

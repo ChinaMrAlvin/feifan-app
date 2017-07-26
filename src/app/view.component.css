@@ -1,0 +1,19 @@
+label{
+    display:inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 50px 0 0;
+}
+input{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+}
+label span{
+    display: inline-block;
+    width: 150px;
+}
+#submit{
+  display: block;
+}

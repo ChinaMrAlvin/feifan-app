@@ -1,0 +1,23 @@
+
+<h1>{{title}}</h1>
+
+<div class="top clearfix">
+        <nav>
+                <a routerLink="/detailInfo/page/1" routerLinkActive="active">项目明细</a>
+                <a routerLink="/summary" >统计</a>
+                <a routerLink="/addNew">添加记录</a>
+                <a routerLink="/viewCtrl" >视图控制</a>
+                <a routerLink="/echarts" >数据展示</a>
+                <a routerLink="/login" >退出</a>
+                <a routerLink="/demoAnimate" >animate类</a>
+
+                
+        </nav>
+        <div class="usersLogo">
+               <i class="fa fa-user" aria-hidden="true"></i>
+               <span><i>{{this.uname}}</i></span>
+        </div>
+</div>
+<div class="wrap">
+     <data-form></data-form>
+</div>

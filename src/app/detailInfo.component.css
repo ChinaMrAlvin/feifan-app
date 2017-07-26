@@ -1,0 +1,20 @@
+.usersLogo{
+    float: right;
+    margin:0 100px;
+}
+nav{
+    margin-top: 15px;
+    float: left;
+}
+.active{
+    color:#000;
+    background-color: salmon;
+}
+a{
+    padding: 10px;
+}
+.wrap{
+    padding-top: 15px;
+}
+
+

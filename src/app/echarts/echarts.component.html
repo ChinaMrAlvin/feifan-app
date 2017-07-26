@@ -1,0 +1,22 @@
+<h5>异步加载echarts模块</h5>
+ <div class="row" [@fadeIn]>
+    <div class="col-sm-12">
+        <echart  [chartType]="pieChart"  [options]="optionsPie" class="nf-chart"></echart>
+    </div>
+</div> 
+<div class="row">
+    <div class="col-sm-12">
+        <echart  [chartType]="luxuryChart" [options]="optionsLuxury" class="nf-chart"></echart>
+    </div>
+</div> 
+ <div class="row">
+    <div class="col-sm-12">
+        <echart  [chartType]="barChart" [options]="optionsBar" class="nf-chart"></echart>
+    </div>
+</div> 
+ <div class="row">
+    <div class="col-sm-12">
+        <echart  [chartType]="lineChart" [options]="optionsLine" class="nf-chart"></echart>
+    </div>
+</div> 
+
